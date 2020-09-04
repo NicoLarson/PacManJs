@@ -14,6 +14,10 @@
 	border:5px solid white;
 	box-sizing: border-box;
 }
+.pac-man{
+background-color:red;
+bordder:5px solid black;
+}
 .wall{
 	background-color:blue;
 }

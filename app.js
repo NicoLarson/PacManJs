@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded",()=>{
+	console.log("Load")
 	const grid = document.querySelector(".grid")
 	const scoreDisplay = document.querySelector("#score")
 	const width = 28
@@ -40,7 +41,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 	// 3 - power-pellet
 	// 4 - empty
 const squares = []
-	
 //draw grid and renderit
 	let createBoard = ()=>{
 		for (let i=0;i<layout.length;i++){
@@ -57,4 +57,32 @@ const squares = []
 	}
 	}}
 createBoard()	 
+
+let pacmanCurrentIndex = 490
+
+	squares[pacmanCurrentIndex].classList.add("pac-man")
+
+let movePacman = (e)=>{
+	squares[pacmanCurrentIndex].classList.remove('pac-man')
+	switch(e.keyCode){
+		case 37:
+			if(pacmanCurrentIndex%width!==0) pacmanCurrentIndex -= 1
+			break
+		case 38:
+			if(pacmanCurrentIndex-width>=0) pacmanCurrentIndex -= width
+			break
+		case 39:
+			if(pacmanCurrentIndex%width<width-1) pacmanCurrentIndex += 1
+			break
+		case 40:
+			if(pacmanCurrentIndex-width<width*width) pacmanCurrentIndex += width
+			break
+	}
+suares[pacmanCurrentIndex].classList.add('pac-man')
+	
+}
+document.addEventListener('keyup',movePacman)
+
+
+
 })
